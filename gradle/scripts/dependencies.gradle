@@ -1,6 +1,9 @@
 apply from: 'gradle/scripts/helpers.gradle'
 
 repositories {
+    flatDir {
+        dirs("libs")
+    }
     // Other repositories described by default:
     // CleanroomMC: https://maven.cleanroommc.com
     exclusiveContent {
@@ -59,4 +62,11 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+//    implementation 'curse.maven:crafttweaker-239197:5486112'
+    implementation 'curse.maven:crafttweaker-239197:4534504'
+
+    implementation rfg.deobf("curse.maven:zenutil-401178:5779305")
+    implementation rfg.deobf("curse.maven:configanytime-870276:5212709")
+    implementation rfg.deobf("curse.maven:mixin-booter-419286:5739618")
+
 }

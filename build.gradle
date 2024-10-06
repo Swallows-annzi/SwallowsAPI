@@ -103,13 +103,51 @@ minecraft {
 }
 
 repositories {
+    flatDir {
+        dirs 'libs'
+    }
     maven {
         name 'CleanroomMC Maven'
         url 'https://maven.cleanroommc.com'
     }
+    maven {
+        url "https://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        url "https://maven.blamejared.com"
+    }
+    maven {
+        url "https://maven.covers1624.net/"
+    }
+    maven {
+        url "https://chickenbones.net/maven/"
+    }
+    maven {
+        url "https://www.ryanliptak.com/maven/"
+    }
+    maven {
+        url "https://maven.ellpeck.de/"
+    }
+    maven {
+        url "https://maven2.ic2.player.to/"
+    }
+    maven {
+        url "https://maven.tterrag.com"
+    }
+    maven {
+        url = "https://maven.thiakil.com"
+    }
+    maven {
+        url "https://maven.amadornes.com/"
+    }
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 
 dependencies {
+//    implementation("curse.maven:crafttweaker-239197:5486112")
+//    implementation files('libs/CraftTweaker2-1.12-4.1.20.700.jar')
     if (propertyBool('use_modern_java_syntax')) {
         annotationProcessor 'com.github.bsideup.jabel:jabel-javac-plugin:1.0.0'
         // Workaround for https://github.com/bsideup/jabel/issues/174
