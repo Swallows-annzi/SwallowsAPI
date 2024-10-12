@@ -64,7 +64,7 @@ public class CommandAddArchiveData extends CommandBase {
 
             if (args.length == 0) {
                 player.sendMessage(new TextComponentString("ArchiveData: " + ArchiveNBT.toString()));
-                FMLLog.log.info("ArchiveData: " + ArchiveNBT.toString());
+                FMLLog.log.info("ArchiveData: " + ArchiveNBT);
             }
 
         }
