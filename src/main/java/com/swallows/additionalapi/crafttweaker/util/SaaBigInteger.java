@@ -10,9 +10,10 @@ import java.math.BigInteger;
 @ZenClass("mods.additionalapi.BigInteger")
 @SuppressWarnings("unused")
 public class SaaBigInteger {
+
     @ZenMethod
     public  static String BigIntegerAdd (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -22,7 +23,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerSubtract (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -32,7 +33,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerMultiply (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -42,7 +43,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerDivide (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -52,7 +53,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerRemainder (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -80,7 +81,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static int BigIntegerCompareTo (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return -2;
         }
         BigInteger A = new BigInteger(a);
@@ -90,7 +91,7 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerMin (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
@@ -100,11 +101,21 @@ public class SaaBigInteger {
 
     @ZenMethod
     public  static String BigIntegerMax (String a, String b) {
-        if(!a.matches("-?\\d+") || b.matches("-?\\d+")){
+        if(!a.matches("-?\\d+") || !b.matches("-?\\d+")){
             return null;
         }
         BigInteger A = new BigInteger(a);
         BigInteger B = new BigInteger(b);
         return A.max(B).toString();
+    }
+
+    @ZenMethod
+    public  static String toString (int a) {
+        return String.valueOf(a);
+    }
+
+    @ZenMethod
+    public  static String toString (long a) {
+        return String.valueOf(a);
     }
 }

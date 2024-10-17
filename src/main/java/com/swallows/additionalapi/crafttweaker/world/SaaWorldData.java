@@ -1,10 +1,11 @@
 package com.swallows.additionalapi.crafttweaker.world;
 
-import com.swallows.additionalapi.data.Data;
+import com.swallows.additionalapi.data.ArchiveData;
+import com.swallows.additionalapi.util.getData;
 import crafttweaker.annotations.ZenRegister;
+import crafttweaker.api.data.IData;
+import crafttweaker.mc1120.data.NBTConverter;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
-import net.minecraftforge.common.DimensionManager;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -12,17 +13,41 @@ import stanhebben.zenscript.annotations.ZenMethod;
 @ZenClass("mods.additionalapi.WorldData")
 @SuppressWarnings("unused")
 public class SaaWorldData {
+
     @ZenMethod
-    public  static void setArchiveDataInt (String Key, int Value) {
-        World world = DimensionManager.getWorld(0);
-        Data data = (Data) world.getMapStorage().getOrLoadData(Data.class, "AdditionalAPIArchiveData");
-        if(data == null)
-        {
-            data = new Data("AdditionalAPIArchiveData");
-            world.getMapStorage().setData("AdditionalAPIArchiveData", data);
-        }
-        NBTTagCompound ArchiveNBT = data.getData("ArchiveData");
-        ArchiveNBT.setInteger(Key, Value);
-        data.setData("ArchiveData", ArchiveNBT);
+    public  static void setArchiveData (String name, String key, IData iData) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        archivedata.setArchiveData(key, (NBTTagCompound) NBTConverter.from(iData));
+    }
+
+    @ZenMethod
+    public static void upArchiveData (String name, String key, IData iData) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        archivedata.upArchiveData(key, (NBTTagCompound) NBTConverter.from(iData));
+    }
+
+    @ZenMethod
+    public  static IData getArchiveData (String name, String key) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        return NBTConverter.from(archivedata.getArchiveData(key), false);
+    }
+
+    @ZenMethod
+    public  static String getArchiveStringData (String name, String key) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        return NBTConverter.from(archivedata.getArchiveData(key), false).toString();
+    }
+
+    @ZenMethod
+    public static void removeArchiveData(String name, String key) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        if(archivedata.isArchiveData(key))
+            archivedata.removeArchiveData(key);
+    }
+
+    @ZenMethod
+    public  static boolean isArchiveData (String name, String key) {
+        ArchiveData archivedata = getData.getArchiveData(name);
+        return archivedata.isArchiveData(key);
     }
 }

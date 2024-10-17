@@ -35,15 +35,6 @@ public class AdditionalAPI {
     @Mod.EventHandler
     public static void serverInit(FMLServerStartingEvent event)
     {
-        event.registerServerCommand(new CommandAddArchiveData());
-        event.registerServerCommand(new CommandAddWorldData());
-        event.registerServerCommand(new CommandAddChunkData());
-        event.registerServerCommand(new CommandAddCoordinateData());
-        event.registerServerCommand(new CommandAddBlockData());
-        event.registerServerCommand(new CommandRemoveArchiveData());
-        event.registerServerCommand(new CommandRemoveWorldData());
-        event.registerServerCommand(new CommandRemoveChunkData());
-        event.registerServerCommand(new CommandRemoveCoordinateData());
-        event.registerServerCommand(new CommandRemoveBlockData());
+
     }
 }
