@@ -29,13 +29,10 @@ public class SaaWorldData {
     @ZenMethod
     public  static IData getArchiveData (String name, String key) {
         ArchiveData archivedata = getData.getArchiveData(name);
-        return NBTConverter.from(archivedata.getArchiveData(key), false);
-    }
-
-    @ZenMethod
-    public  static String getArchiveStringData (String name, String key) {
-        ArchiveData archivedata = getData.getArchiveData(name);
-        return NBTConverter.from(archivedata.getArchiveData(key), false).toString();
+        NBTTagCompound data = new NBTTagCompound();
+        if(archivedata.isArchiveData(key))
+            data = archivedata.getArchiveData(key);
+        return NBTConverter.from(data, false);
     }
 
     @ZenMethod
